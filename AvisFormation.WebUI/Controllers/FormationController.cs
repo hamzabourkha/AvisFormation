@@ -18,7 +18,7 @@ namespace AvisFormations.WebUI.Controllers
             {
                 listFormations = context.Formation.ToList();
             }
-                return View(listFormations);
+                return View("RechercheFormations",listFormations);
         }
         public ActionResult DetailsFormation(string nomSeo)
         {
