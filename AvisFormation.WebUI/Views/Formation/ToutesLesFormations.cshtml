@@ -1,0 +1,17 @@
+﻿@model List<AvisFormations.Data.Formation>
+@{
+    ViewBag.Title = "Liste des formations";
+}
+
+<h2>Liste des formations</h2>
+
+@foreach (var formation in @Model)
+{
+    <div>Nom : @formation.Nom</div>
+    @*<div>Description : @formation.Description</div>*@
+    @*<div>Url : <a href="@formation.Url">Lien de la formation</a></div>*@
+    <div>SEO : @formation.NomSeo</div>
+    @Html.ActionLink("plus de détails...","DetailsFormation","Formation",routeValues: new { nomSeo = formation.NomSeo }, htmlAttributes: null)
+    <hr />
+}
+

@@ -1,0 +1,27 @@
+﻿@model AvisFormations.WebUI.Models.DetailsFormationViewModel
+@{
+    ViewBag.Title = "Details de la formation" + Model.FormationName;
+}
+
+<h2>Details formation</h2>
+<div class="container">
+    <div>Nom : @Model.FormationName</div>
+    <div>Description : @Model.FormationDescription</div>
+    <div>Url : <a href="@Model.FormationUrl">Lien de la formation</a></div>
+    <div>SEO : @Model.FormationSEO</div>
+    <h3 class="h4">Avis des internautes</h3>
+    @Html.ActionLink("Laisser un avis", "LaisserUnAvis", "Avis", routeValues: new { nomSeo = Model.FormationSEO }, htmlAttributes: null)
+    <div>
+        @foreach (var avis in Model.FormationAvis)
+        {
+            <div class="panel">
+                <div>Date : @avis.DateAvis</div>
+                <div>Nom : @avis.Nom</div>
+                <div>Note : @avis.Note</div>
+                <div>Avis : @avis.Description</div>
+            </div>
+
+        }
+    </div>
+</div>
+

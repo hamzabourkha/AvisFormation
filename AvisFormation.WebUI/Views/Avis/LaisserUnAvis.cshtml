@@ -1,0 +1,32 @@
+﻿@model AvisFormations.WebUI.Models.LaisserUnAvisViewModel
+@{
+    ViewBag.Title = "Laisser un avis sur " + Model.FormationName;
+}
+
+<h2>Laisser un avis sur la formation @Model.FormationName</h2>
+@using (Html.BeginForm("SaveComment", "Avis", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input type="text" class="form-control" id="nom" name="nom" aria-describedby="nameHelp" placeholder="Entrez votre nom">
+        <small id="nameHelp" class="form-text text-muted">Votre nom apparaitera dans la liste des avis.</small>
+    </div>
+    <div class="form-group">
+        <label for="description">Votre avis :</label>
+        <input type="text" class="form-control" id="description" name="description" placeholder="Ecrivez votre avis">
+    </div>
+    <div class="form-group">
+        <label for="note">Note :</label>
+        <select class="form-control" id="note" name="note">
+            <option selected>Donnez une note</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+    <input type="hidden" name="nomSeo" value="@Model.FormationSeo" />
+}
+
